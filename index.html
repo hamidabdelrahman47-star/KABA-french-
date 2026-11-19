@@ -6,61 +6,62 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Français Pas À Pas avec KABA</title>
 <style>
-body {
-  font-family: Arial, sans-serif;
-  background: #f0f5ff;
-  text-align: center;
-  margin: 0;
-  padding: 25px;
-  color: #17345c;
-}
-header {
-  background: #17345c;
-  color: white;
-  padding: 30px 15px;
-  border-radius: 18px;
-}
-h1 { font-size: 28px; }
-.subtitle { font-size: 18px; }
-.flags { font-size: 35px; margin: 15px; }
-h2 { color: #17345c; }
-.level {
-  display: block;
-  background: white;
-  margin: 12px auto;
-  padding: 18px;
-  max-width: 350px;
-  border-radius: 12px;
-  color: #17345c;
-  font-size: 18px;
-  font-weight: bold;
-  text-decoration: none;
-  border: 1px solid #d5dfef;
-}
-footer { margin-top: 35px; color: #52647c; }
+body{font-family:Arial,sans-serif;background:#f0f5ff;text-align:center;margin:0;padding:20px;color:#17345c}
+header{background:#17345c;color:white;padding:30px 15px;border-radius:18px}
+h1{font-size:28px}.subtitle{font-size:18px}.flags{font-size:35px;margin:15px}
+h2{color:#17345c}
+.level{display:block;background:white;margin:12px auto;padding:18px;max-width:350px;border-radius:12px;color:#17345c;font-size:18px;font-weight:bold;text-decoration:none;border:1px solid #d5dfef}
+.audio{background:white;padding:20px;margin:20px auto;max-width:400px;border-radius:15px}
+.audio button{display:block;width:100%;padding:13px;margin:10px auto;border:0;border-radius:9px;background:#17345c;color:white;font-size:16px}
+footer{margin-top:35px;color:#52647c}
 </style>
 </head>
 <body>
 <header>
-  <h1>🇫🇷 KABA 🇸🇩</h1>
-  <p class="subtitle">Français Pas À Pas avec KABA</p>
-  <p>Apprenons le français ensemble !</p>
+<h1>🇫🇷 KABA 🇸🇩</h1>
+<p class="subtitle">Français Pas À Pas avec KABA</p>
+<p>Apprenons le français ensemble !</p>
 </header>
-
 <h2>Bienvenue ! مرحباً بك</h2>
 <p>Choisissez votre niveau de français</p>
-
-<a class="level" href="#">Débutant A0</a>
+<a class="level" href="a0.html">Débutant A0</a>
 <a class="level" href="#">Niveau A1</a>
 <a class="level" href="#">Niveau A2</a>
 <a class="level" href="#">Niveau B1</a>
 <a class="level" href="#">Niveau B2</a>
 <a class="level" href="#">Niveau C1</a>
 <a class="level" href="#">Niveau C2</a>
-
+<section class="audio">
+<h2>🔊 Écoutons les langues</h2>
+<p>اضغط للاستماع إلى النطق</p>
+<button onclick="speak('Bonjour ! Bienvenue avec KABA.','fr-FR')">🇫🇷 Écouter en français</button>
+<button onclick="speak('مرحباً بك! تعلم اللغة خطوة بخطوة مع كابا.','ar')">🇸🇩 الاستماع بالعربية</button>
+<button onclick="speak('Hello! Welcome to KABA. Let us learn French together.','en-US')">🇬🇧 Listen in English</button>
+<button onclick="speak('Ka, A, Bé, A.','fr-FR')">🔤 Épeler KABA</button>
+<p id="audioStatus" aria-live="polite">Choisissez une langue pour écouter.</p>
+</section>
 <footer>
-  <p>Apprendre pas à pas avec KABA ❤️</p>
-  <p>ALJANGO</p>
+<p>Apprendre pas à pas avec KABA ❤️</p>
+<p>ALJANGO</p>
 </footer>
+<script>
+function speak(message,language){
+if(!('speechSynthesis' in window)){
+document.getElementById('audioStatus').textContent='La lecture audio n’est pas disponible sur cet appareil.';
+return;
+}
+window.speechSynthesis.cancel();
+const utterance=new SpeechSynthesisUtterance(message);
+utterance.lang=language;
+utterance.rate=0.85;
+utterance.onstart=()=>document.getElementById('audioStatus').textContent='Lecture en cours...';
+utterance.onend=()=>document.getElementById('audioStatus').textContent='Terminé ! Vous pouvez écouter encore.';
+utterance.onerror=()=>document.getElementById('audioStatus').textContent='Audio indisponible. Vérifiez les voix de votre téléphone.';
+const voices=window.speechSynthesis.getVoices();
+const voice=voices.find(v=>v.lang.toLowerCase().startsWith(language.toLowerCase().split('-')[0]));
+if(voice)utterance.voice=voice;
+window.speechSynthesis.speak(utterance);
+}
+</script>
 </body>
 </html>
