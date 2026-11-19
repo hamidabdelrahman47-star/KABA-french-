@@ -11,22 +11,24 @@ body {
   background: #eef4ff;
   color: #17345c;
   text-align: center;
-  padding: 15px;
+  padding: 12px;
+  margin: 0;
 }
 header {
   background: #17345c;
   color: white;
-  padding: 22px;
+  padding: 22px 12px;
   border-radius: 16px;
 }
 h1 { font-size: 28px; }
 .lesson {
   background: white;
   padding: 17px;
-  margin: 15px auto;
-  max-width: 500px;
+  margin: 16px auto;
+  max-width: 550px;
   border-radius: 14px;
-  text-align: left;
+  text-align: center;
+  box-shadow: 0 2px 7px #d5dfef;
 }
 h2 { color: #174c91; }
 p { font-size: 17px; line-height: 1.6; }
@@ -34,74 +36,235 @@ button {
   background: #174c91;
   color: white;
   border: none;
-  padding: 12px 18px;
+  padding: 12px 15px;
   border-radius: 9px;
   font-size: 16px;
   margin: 5px;
+  cursor: pointer;
 }
-input {
-  padding: 10px;
-  font-size: 17px;
-  width: 80%;
+button:active { background: #2874bd; }
+.letter {
+  display: inline-block;
+  background: #e5efff;
+  border: 1px solid #b9d0f2;
+  border-radius: 10px;
+  padding: 10px 5px;
+  margin: 4px;
+  width: 48px;
+  color: #17345c;
+  font-size: 21px;
+  font-weight: bold;
 }
-#result { font-weight: bold; }
+.letter button {
+  padding: 7px;
+  font-size: 13px;
+  margin: 4px 0 0;
+  width: 100%;
+}
+.word {
+  background: #f0f5ff;
+  padding: 12px;
+  border-radius: 10px;
+  margin: 10px 0;
+}
+.arabic { color: #16804b; font-weight: bold; }
+.english { color: #7951a1; }
+#result, #status { font-weight: bold; }
+footer { margin: 25px; color: #52647c; }
 </style>
 </head>
 <body>
 
 <header>
 <h1>🇫🇷 KABA 🇸🇩</h1>
-<h2 style="color:white">Français Pas À Pas</h2>
+<h2 style="color:white">Français Pas À Pas avec KABA</h2>
 <p>Bienvenue au niveau A0 !</p>
+<p>مرحباً بك في المستوى الأول</p>
 </header>
+
+<div class="lesson">
+<h2>🔊 Écouter et apprendre</h2>
+<p>اختر اللغة للاستماع إلى النطق</p>
+<button onclick="speak('Bonjour ! Bienvenue chez KABA.','fr-FR')">🇫🇷 Français</button>
+<button onclick="speak('مرحباً بك! تعلم الفرنسية خطوة بخطوة.','ar')">🇸🇩 العربية</button>
+<button onclick="speak('Hello! Welcome to KABA.','en-US')">🇬🇧 English</button>
+<p id="status">اضغط على أحد الأزرار للاستماع</p>
+</div>
 
 <div class="lesson">
 <h2>Leçon 1 : L'alphabet français</h2>
 <p>الأبجدية الفرنسية تتكون من 26 حرفاً.</p>
-<p><b>A B C D E F G</b></p>
-<p><b>H I J K L M N</b></p>
-<p><b>O P Q R S T U</b></p>
-<p><b>V W X Y Z</b></p>
+<p>اضغط على كل حرف لسماع اسمه بالفرنسية.</p>
+<div id="alphabet"></div>
 </div>
 
 <div class="lesson">
-<h2>Leçon 2 : Les salutations</h2>
-<p>Bonjour = صباح الخير</p>
-<p>Bonsoir = مساء الخير</p>
-<p>Salut = مرحباً</p>
-<p>Merci = شكراً</p>
-<p>Au revoir = إلى اللقاء</p>
+<h2>Leçon 2 : Les syllabes</h2>
+<p>المقاطع الصوتية الفرنسية</p>
+<div id="syllables"></div>
 </div>
 
 <div class="lesson">
-<h2>Leçon 3 : Se présenter</h2>
-<p>Je m'appelle KABA.</p>
-<p>اسمي كابا.</p>
-<p>Comment tu t'appelles ?</p>
-<p>ما اسمك؟</p>
-<p>Je viens du Soudan.</p>
-<p>أنا من السودان.</p>
+<h2>Leçon 3 : Les salutations</h2>
+<div id="greetings"></div>
 </div>
 
 <div class="lesson">
-<h2>Exercice : اختر الترجمة الصحيحة</h2>
+<h2>Leçon 4 : Se présenter</h2>
+<div id="presentation"></div>
+</div>
+
+<div class="lesson">
+<h2>Leçon 5 : Les mots du quotidien</h2>
+<div id="vocabulary"></div>
+</div>
+
+<div class="lesson">
+<h2>Exercice 1 : Choisis la bonne réponse</h2>
 <p>Bonjour تعني:</p>
 <button onclick="check('wrong')">شكراً</button>
 <button onclick="check('right')">صباح الخير</button>
 <p id="result"></p>
 </div>
 
-<script>
-function check(answer) {
- document.getElementById("result").innerText =
- answer === "right" ? "Bravo ! Très bien ! 👏" : "Essaie encore !";
-}
-</script>
+<div class="lesson">
+<h2>Exercice 2 : Écoute et répète</h2>
+<p>استمع وكرر بصوتك</p>
+<button onclick="speak('Je m’appelle KABA.','fr-FR')">🔊 Je m'appelle KABA</button>
+<button onclick="speak('Comment tu t’appelles ?','fr-FR')">🔊 Comment tu t'appelles ?</button>
+<button onclick="speak('Je viens du Soudan.','fr-FR')">🔊 Je viens du Soudan</button>
+</div>
 
 <footer>
 <p>Apprendre pas à pas avec KABA ❤️</p>
 <p>Association ALJANGO</p>
+<p>🇸🇩 🇫🇷</p>
+<a href="index.html">🏠 Accueil / الصفحة الرئيسية</a>
 </footer>
+
+<script>
+function speak(message, language) {
+  const status = document.getElementById("status");
+
+  if (!("speechSynthesis" in window)) {
+    status.textContent = "Audio non disponible sur cet appareil.";
+    return;
+  }
+
+  window.speechSynthesis.cancel();
+
+  const utterance = new SpeechSynthesisUtterance(message);
+  utterance.lang = language;
+  utterance.rate = 0.82;
+
+  const voices = window.speechSynthesis.getVoices();
+  const lang = language.split("-")[0];
+
+  const voice = voices.find(v =>
+    v.lang.toLowerCase() === language.toLowerCase()
+  ) || voices.find(v =>
+    v.lang.toLowerCase().startsWith(lang.toLowerCase())
+  );
+
+  if (voice) utterance.voice = voice;
+
+  utterance.onstart = () => {
+    status.textContent = "🔊 Lecture en cours...";
+  };
+
+  utterance.onend = () => {
+    status.textContent = "Bravo ! يمكنك الاستماع مرة أخرى.";
+  };
+
+  utterance.onerror = () => {
+    status.textContent = "Audio indisponible. Vérifiez les voix du téléphone.";
+  };
+
+  window.speechSynthesis.speak(utterance);
+}
+
+const letters = [
+["A","a"],["B","bé"],["C","cé"],["D","dé"],
+["E","e"],["F","effe"],["G","gé"],["H","ache"],
+["I","i"],["J","ji"],["K","ka"],["L","elle"],
+["M","emme"],["N","enne"],["O","o"],["P","pé"],
+["Q","ku"],["R","erre"],["S","esse"],["T","té"],
+["U","u"],["V","vé"],["W","double vé"],
+["X","ixe"],["Y","i grec"],["Z","zède"]
+];
+
+document.getElementById("alphabet").innerHTML =
+letters.map(([letter, name]) =>
+`<div class="letter">${letter}
+<button onclick="speak('${name}','fr-FR')">🔊</button>
+</div>`
+).join("");
+
+const syllables = [
+"BA","BE","BI","BO","BU",
+"MA","ME","MI","MO","MU",
+"PA","PE","PI","PO","PU",
+"LA","LE","LI","LO","LU"
+];
+
+document.getElementById("syllables").innerHTML =
+syllables.map(s =>
+`<button onclick="speak('${s}','fr-FR')">${s} 🔊</button>`
+).join("");
+
+const greetings = [
+["Bonjour","صباح الخير","Good morning"],
+["Bonsoir","مساء الخير","Good evening"],
+["Salut","مرحباً","Hi"],
+["Merci","شكراً","Thank you"],
+["Au revoir","إلى اللقاء","Goodbye"],
+["Bonne journée","يوماً سعيداً","Have a nice day"]
+];
+
+function makeWords(items, target) {
+  document.getElementById(target).innerHTML =
+  items.map(([fr,ar,en]) => `
+  <div class="word">
+  <h3>${fr}</h3>
+  <p class="arabic">${ar}</p>
+  <p class="english">${en}</p>
+  <button onclick="speak('${fr.replace(/'/g,"\\'")}','fr-FR')">🇫🇷 Écouter</button>
+  <button onclick="speak('${ar}','ar')">🇸🇩 استمع</button>
+  <button onclick="speak('${en}','en-US')">🇬🇧 Listen</button>
+  </div>`).join("");
+}
+
+makeWords(greetings,"greetings");
+
+const presentation = [
+["Je m'appelle KABA.","اسمي كابا.","My name is KABA."],
+["Comment tu t'appelles ?","ما اسمك؟","What's your name?"],
+["Je viens du Soudan.","أنا من السودان.","I come from Sudan."],
+["Je viens de France.","أنا من فرنسا.","I come from France."],
+["Enchanté !","سعيد بلقائك!","Nice to meet you!"],
+["Ravi de te connaître.","سعيد بمعرفتك.","Pleased to meet you."]
+];
+
+makeWords(presentation,"presentation");
+
+const vocabulary = [
+["Maison","منزل","House"],
+["École","مدرسة","School"],
+["Livre","كتاب","Book"],
+["Bonjour","صباح الخير","Good morning"],
+["Eau","ماء","Water"],
+["Pain","خبز","Bread"]
+];
+
+makeWords(vocabulary,"vocabulary");
+
+function check(answer) {
+  document.getElementById("result").textContent =
+  answer === "right"
+  ? "Bravo ! Très bien ! 👏"
+  : "Essaie encore ! حاول مرة أخرى.";
+}
+</script>
 
 </body>
 </html>
