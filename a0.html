@@ -4,66 +4,72 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>KABA - Niveau A0</title>
-
+<title>Français Pas À Pas avec KABA - A0</title>
 <style>
+* { box-sizing:border-box; }
 body {
-  font-family: Arial, sans-serif;
-  background: #eef4ff;
-  color: #17345c;
-  text-align: center;
-  padding: 12px;
-  margin: 0;
+  font-family:Arial,sans-serif;
+  background:#eef4ff;
+  color:#17345c;
+  text-align:center;
+  margin:0;
+  padding:12px;
 }
 header {
-  background: #17345c;
-  color: white;
-  padding: 22px;
-  border-radius: 15px;
+  background:#17345c;
+  color:white;
+  padding:24px 12px;
+  border-radius:18px;
 }
-h2 {
-  color: #1765a5;
-  margin-top: 28px;
-}
+header h1 { font-size:25px; }
+header h2 { color:white; }
 section {
-  background: white;
-  margin: 15px 0;
-  padding: 15px;
-  border-radius: 15px;
+  background:white;
+  margin:16px 0;
+  padding:18px 12px;
+  border-radius:16px;
+  box-shadow:0 3px 10px #d5e0f0;
 }
+h2 { color:#1765a5; }
 button {
-  background: #1765a5;
-  color: white;
-  border: none;
-  border-radius: 10px;
-  padding: 12px;
-  margin: 5px;
-  font-size: 17px;
-  cursor: pointer;
+  background:#1765a5;
+  color:white;
+  border:0;
+  border-radius:12px;
+  padding:12px 15px;
+  margin:5px;
+  font-size:16px;
+  cursor:pointer;
 }
-button:active {
-  background: #f39c12;
+button:active { background:#f39c12; }
+.card {
+  display:inline-block;
+  background:#f0f6ff;
+  border-radius:14px;
+  padding:12px;
+  margin:7px;
+  min-width:125px;
 }
-.word {
-  font-size: 22px;
-  color: #d35400;
-  font-weight: bold;
-}
+.picture { font-size:55px; }
+.word { font-size:21px; font-weight:bold; color:#d35400; }
+.small { color:#536b87; }
 input {
-  padding: 12px;
-  font-size: 18px;
-  width: 80%;
-  border: 2px solid #1765a5;
-  border-radius: 8px;
-  margin: 8px;
+  padding:12px;
+  font-size:18px;
+  width:85%;
+  border:2px solid #1765a5;
+  border-radius:10px;
+  margin:8px;
 }
+#score { color:#e67e22; font-size:23px; font-weight:bold; }
 footer {
-  background: #17345c;
-  color: white;
-  padding: 15px;
-  border-radius: 12px;
-  margin-top: 20px;
+  background:#17345c;
+  color:white;
+  padding:18px;
+  border-radius:15px;
+  margin-top:20px;
 }
+footer a { color:white; }
 </style>
 </head>
 
@@ -71,11 +77,17 @@ footer {
 
 <header>
 <h1>🇫🇷 Français Pas À Pas avec KABA</h1>
-<h2 style="color:white">Bienvenue au niveau A0 !</h2>
+<h2>Bienvenue au niveau A0 !</h2>
 <p>Apprendre le français pas à pas</p>
 <p>Français • العربية • English</p>
-<p>🇸🇩 🇫🇷</p>
+<p>🇸🇩 ❤️ 🇫🇷</p>
 </header>
+
+<section>
+<h2>⭐ Mes points – نقاطي</h2>
+<p id="score">0 ⭐</p>
+<p id="message">Bienvenue ! Bon courage !</p>
+</section>
 
 <section>
 <h2>🔊 1. Écouter – الاستماع – Listening</h2>
@@ -93,21 +105,21 @@ footer {
 
 <section>
 <h2>🧩 3. Les syllabes – المقاطع</h2>
-<p>Écoute le son complet du syllabe !</p>
-<p>استمع إلى صوت المقطع كاملاً</p>
+<p>Écoute et répète le son complet !</p>
+<p>استمع وكرر المقطع</p>
 <div id="syllables"></div>
 </section>
 
 <section>
 <h2>👋 4. Les salutations – التحيات</h2>
-<button onclick="speak('Bonjour','fr-FR')">Bonjour</button>
-<button onclick="speak('Bonsoir','fr-FR')">Bonsoir</button>
-<button onclick="speak('Salut','fr-FR')">Salut</button>
-<button onclick="speak('Au revoir','fr-FR')">Au revoir</button>
-<p>Bonjour = صباح الخير / مرحباً</p>
-<p>Bonsoir = مساء الخير</p>
-<p>Salut = أهلاً</p>
-<p>Au revoir = إلى اللقاء</p>
+<button onclick="speak('Bonjour','fr-FR')">Bonjour 🔊</button>
+<button onclick="speak('Bonsoir','fr-FR')">Bonsoir 🔊</button>
+<button onclick="speak('Salut','fr-FR')">Salut 🔊</button>
+<button onclick="speak('Au revoir','fr-FR')">Au revoir 🔊</button>
+<p>Bonjour = مرحباً – Hello</p>
+<p>Bonsoir = مساء الخير – Good evening</p>
+<p>Salut = أهلاً – Hi</p>
+<p>Au revoir = إلى اللقاء – Goodbye</p>
 </section>
 
 <section>
@@ -118,62 +130,67 @@ footer {
 <button onclick="speak('J’habite en France','fr-FR')">Écouter 🔊</button>
 <p>Comment tu t'appelles ?</p>
 <button onclick="speak('Comment tu t’appelles ?','fr-FR')">Écouter 🔊</button>
-<p>أنا اسمي كابا. أسكن في فرنسا. ما اسمك؟</p>
+<p>اسمي كابا – My name is KABA.</p>
 </section>
 
 <section>
-<h2>📚 6. Les mots du quotidien – كلمات يومية</h2>
-<p class="word">La maison 🏠</p>
+<h2>🖼️ 6. Les images et les mots – الصور والكلمات</h2>
+<p>Regarde, écoute et répète !</p>
+
+<div class="card">
+<div class="picture">🏠</div>
+<p class="word">La maison</p>
+<p>المنزل – House</p>
 <button onclick="speak('La maison','fr-FR')">Écouter 🔊</button>
-<p class="word">L'école 🏫</p>
+</div>
+
+<div class="card">
+<div class="picture">🐱</div>
+<p class="word">Le chat</p>
+<p>القط – Cat</p>
+<button onclick="speak('Le chat','fr-FR')">Écouter 🔊</button>
+</div>
+
+<div class="card">
+<div class="picture">🎒</div>
+<p class="word">L'école</p>
+<p>المدرسة – School</p>
 <button onclick="speak('L’école','fr-FR')">Écouter 🔊</button>
-<p class="word">Le livre 📖</p>
+</div>
+
+<div class="card">
+<div class="picture">🍎</div>
+<p class="word">La pomme</p>
+<p>التفاحة – Apple</p>
+<button onclick="speak('La pomme','fr-FR')">Écouter 🔊</button>
+</div>
+
+<div class="card">
+<div class="picture">📖</div>
+<p class="word">Le livre</p>
+<p>الكتاب – Book</p>
 <button onclick="speak('Le livre','fr-FR')">Écouter 🔊</button>
-<p class="word">L'eau 💧</p>
+</div>
+
+<div class="card">
+<div class="picture">💧</div>
+<p class="word">L'eau</p>
+<p>الماء – Water</p>
 <button onclick="speak('L’eau','fr-FR')">Écouter 🔊</button>
-<p class="word">Le pain 🥖</p>
-<button onclick="speak('Le pain','fr-FR')">Écouter 🔊</button>
+</div>
 </section>
 
 <section>
-<h2>✍️ 7. Exercice – تمرين</h2>
-<p>Comment dit-on Bonjour en arabe ?</p>
-<button onclick="showAnswer('Bonjour = مرحباً 👏')">Voir la réponse</button>
-<p id="answer"></p>
-</section>
-
-<section>
-<h2>🎯 8. Choisis la bonne réponse</h2>
+<h2>🎯 7. Le quiz de KABA – اختبار كابا</h2>
 <p>Que signifie MERCI ?</p>
-<button onclick="checkAnswer('wrong')">Bonjour</button>
-<button onclick="checkAnswer('right')">شكراً</button>
-<button onclick="checkAnswer('wrong')">Au revoir</button>
-<p id="result"></p>
+<button onclick="quiz('Bonjour')">Bonjour</button>
+<button onclick="quiz('شكراً')">شكراً</button>
+<button onclick="quiz('Au revoir')">Au revoir</button>
+<p id="quizResult"></p>
 </section>
 
 <section>
-<h2>🗣️ 9. Les quatre compétences</h2>
-<p>Écouter – الاستماع</p>
-<button onclick="speak('Écouter','fr-FR')">🔊 Écouter</button>
-<p>Parler – التحدث</p>
-<button onclick="speak('Parler','fr-FR')">🔊 Parler</button>
-<p>Lire – القراءة</p>
-<button onclick="speak('Lire','fr-FR')">🔊 Lire</button>
-<p>Écrire – الكتابة</p>
-<button onclick="speak('Écrire','fr-FR')">🔊 Écrire</button>
-</section>
-
-<section>
-<h2>😂 10. La minute KABA – دقيقة الضحك</h2>
-<p>KABA : Tu parles français ?</p>
-<p>ALJANGO : Oui, un petit peu !</p>
-<p>KABA : Alors, parle beaucoup ! 😂</p>
-<p>ALJANGO : Mais ma bouche est fatiguée ! 🤣</p>
-<button onclick="speak('Mais ma bouche est fatiguée !','fr-FR')">Écouter la blague 🔊</button>
-</section>
-
-<section>
-<h2>🔠 11. Épelle le mot – تهجئة الكلمة</h2>
+<h2>🔠 8. Épelle le mot – تهجئة الكلمة</h2>
 <p>Écris le mot : CHAT 🐱</p>
 <input id="spelling" type="text" placeholder="Écris ici...">
 <br>
@@ -182,39 +199,85 @@ footer {
 </section>
 
 <section>
-<h2>🎮 12. Le jeu de KABA</h2>
-<p id="gameQuestion">Comment dit-on Merci en arabe ?</p>
-<button onclick="gameAnswer('شكراً')">شكراً</button>
-<button onclick="gameAnswer('مرحبا')">مرحبا</button>
+<h2>😂 9. La minute KABA – دقيقة الضحك</h2>
+<p><b>KABA :</b> Tu parles français ?</p>
+<p><b>ALJANGO :</b> Oui, un petit peu !</p>
+<p><b>KABA :</b> Alors, parle beaucoup ! 😂</p>
+<p><b>ALJANGO :</b> Mais ma bouche est fatiguée ! 🤣</p>
+<button onclick="speak('KABA : Tu parles français ? ALJANGO : Oui, un petit peu ! KABA : Alors, parle beaucoup ! ALJANGO : Mais ma bouche est fatiguée !','fr-FR')">Écouter le dialogue 🔊</button>
+</section>
+
+<section>
+<h2>🗣️ 10. Les quatre compétences</h2>
+<div class="card">
+<div class="picture">👂</div>
+<p>Écouter</p>
+<p>الاستماع</p>
+<button onclick="speak('Écouter','fr-FR')">🔊</button>
+</div>
+<div class="card">
+<div class="picture">🗣️</div>
+<p>Parler</p>
+<p>التحدث</p>
+<button onclick="speak('Parler','fr-FR')">🔊</button>
+</div>
+<div class="card">
+<div class="picture">📖</div>
+<p>Lire</p>
+<p>القراءة</p>
+<button onclick="speak('Lire','fr-FR')">🔊</button>
+</div>
+<div class="card">
+<div class="picture">✍️</div>
+<p>Écrire</p>
+<p>الكتابة</p>
+<button onclick="speak('Écrire','fr-FR')">🔊</button>
+</div>
+</section>
+
+<section>
+<h2>🎮 11. Le jeu de KABA</h2>
+<p>Comment dit-on CHAT en arabe ?</p>
+<button onclick="game('كلب')">كلب</button>
+<button onclick="game('قط')">قط</button>
+<button onclick="game('بيت')">بيت</button>
 <p id="gameResult"></p>
-<button onclick="kabaRestart()">Recommencer 🔄</button>
+<button onclick="restart()">Recommencer 🔄</button>
 </section>
 
 <footer>
 <h3>Français Pas À Pas avec KABA</h3>
 <p>ALJANGO – Apprendre ensemble !</p>
 <p>🇸🇩 Solidarité • 🇫🇷 Intégration</p>
-<a href="index.html" style="color:white">Retour à l'accueil</a>
+<a href="index.html">Retour à l'accueil</a>
 </footer>
 
 <script>
-function speak(message, language = 'fr-FR', rate = 0.85) {
+let points = 0;
+
+function speak(message, language='fr-FR') {
   if (!('speechSynthesis' in window)) {
-    alert("La lecture vocale n'est pas disponible sur cet appareil.");
+    alert("La lecture vocale n'est pas disponible.");
     return;
   }
   window.speechSynthesis.cancel();
   const speech = new SpeechSynthesisUtterance(message);
   speech.lang = language;
-  speech.rate = rate;
+  speech.rate = 0.85;
   window.speechSynthesis.speak(speech);
 }
 
-const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+function addPoint() {
+  points += 1;
+  document.getElementById("score").textContent = points + " ⭐";
+  document.getElementById("message").textContent =
+    "Bravo ! Très bien ! Continue ! 🎉";
+}
 
+const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 document.getElementById("alphabet").innerHTML =
 letters.map(letter =>
-`<button onclick="speak('${letter}','fr-FR')">${letter} 🔊</button>`
+`<button onclick="speak('${letter}')">${letter} 🔊</button>`
 ).join("");
 
 const syllables = [
@@ -226,74 +289,52 @@ const syllables = [
 
 document.getElementById("syllables").innerHTML =
 syllables.map(s =>
-`<button onclick="speak('${s.toLowerCase()}','fr-FR',0.75)">${s} 🔊</button>`
+`<button onclick="speak('${s.toLowerCase()}')">${s} 🔊</button>`
 ).join("");
 
-function showAnswer(message) {
-  document.getElementById("answer").textContent = message;
-}
-
-function checkAnswer(answer) {
-  document.getElementById("result").textContent =
-  answer === "right"
-  ? "Bravo ! Très bien ! 👏"
-  : "Essaie encore ! حاول مرة أخرى.";
+function quiz(answer) {
+  const result = document.getElementById("quizResult");
+  if (answer === "شكراً") {
+    result.textContent = "Bravo ! Bonne réponse ! 🎉";
+    addPoint();
+  } else {
+    result.textContent = "Essaie encore ! 😂";
+  }
 }
 
 function checkSpelling() {
-  const answer = document.getElementById("spelling").value.trim().toUpperCase();
-  document.getElementById("spellResult").textContent =
-  answer === "CHAT"
-  ? "Excellent ! Bravo ! 🐱👏"
-  : "Essaie encore ! حاول مرة أخرى.";
+  const answer =
+    document.getElementById("spelling").value.trim().toUpperCase();
+  const result = document.getElementById("spellResult");
+
+  if (answer === "CHAT") {
+    result.textContent = "Excellent ! Tu gagnes une étoile ! 🐱";
+    addPoint();
+  } else {
+    result.textContent = "Essaie encore ! Regarde le mot : CHAT";
+  }
 }
 
-function gameAnswer(answer) {
-  document.getElementById("gameResult").textContent =
-  answer === "شكراً"
-  ? "Bravo ! KABA est fier de toi ! 🎉"
-  : "Oups ! Essaie encore ! 😂";
+function game(answer) {
+  const result = document.getElementById("gameResult");
+  if (answer === "قط") {
+    result.textContent = "Bravo ! Tu es un champion ! 🏆";
+    addPoint();
+  } else {
+    result.textContent = "Oups ! ALJANGO, essaie encore ! 😂";
+  }
 }
 
-function kabaRestart() {
+function restart() {
+  points = 0;
+  document.getElementById("score").textContent = "0 ⭐";
+  document.getElementById("message").textContent = "On recommence ! Bon courage !";
   document.getElementById("gameResult").textContent = "";
-  document.getElementById("spelling").value = "";
+  document.getElementById("quizResult").textContent = "";
   document.getElementById("spellResult").textContent = "";
-  document.getElementById("result").textContent = "";
-  document.getElementById("answer").textContent = "";
+  document.getElementById("spelling").value = "";
 }
-
 </script>
 
-</body><section>
-<h2>🏠 13. Les images et les mots – الصور والكلمات</h2>
-
-<p>Regarde, écoute et répète !</p>
-
-<div style="font-size:75px">🏠</div>
-<h3>La maison</h3>
-<p>المنزل – House</p>
-<button onclick="speak('La maison','fr-FR')">Écouter 🔊</button>
-
-<hr>
-
-<div style="font-size:75px">🐱</div>
-<h3>Le chat</h3>
-<p>القط – Cat</p>
-<button onclick="speak('Le chat','fr-FR')">Écouter 🔊</button>
-
-<hr>
-
-<div style="font-size:75px">🎒</div>
-<h3>L'école</h3>
-<p>المدرسة – School</p>
-<button onclick="speak('L’école','fr-FR')">Écouter 🔊</button>
-
-<hr>
-
-<div style="font-size:75px">🍎</div>
-<h3>La pomme</h3>
-<p>التفاحة – Apple</p>
-<button onclick="speak('La pomme','fr-FR')">Écouter 🔊</button>
-</section>
+</body>
 </html>
