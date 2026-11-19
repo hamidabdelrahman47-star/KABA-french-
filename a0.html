@@ -1,0 +1,107 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KABA - Niveau A0</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: #eef4ff;
+  color: #17345c;
+  text-align: center;
+  padding: 15px;
+}
+header {
+  background: #17345c;
+  color: white;
+  padding: 22px;
+  border-radius: 16px;
+}
+h1 { font-size: 28px; }
+.lesson {
+  background: white;
+  padding: 17px;
+  margin: 15px auto;
+  max-width: 500px;
+  border-radius: 14px;
+  text-align: left;
+}
+h2 { color: #174c91; }
+p { font-size: 17px; line-height: 1.6; }
+button {
+  background: #174c91;
+  color: white;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 9px;
+  font-size: 16px;
+  margin: 5px;
+}
+input {
+  padding: 10px;
+  font-size: 17px;
+  width: 80%;
+}
+#result { font-weight: bold; }
+</style>
+</head>
+<body>
+
+<header>
+<h1>🇫🇷 KABA 🇸🇩</h1>
+<h2 style="color:white">Français Pas À Pas</h2>
+<p>Bienvenue au niveau A0 !</p>
+</header>
+
+<div class="lesson">
+<h2>Leçon 1 : L'alphabet français</h2>
+<p>الأبجدية الفرنسية تتكون من 26 حرفاً.</p>
+<p><b>A B C D E F G</b></p>
+<p><b>H I J K L M N</b></p>
+<p><b>O P Q R S T U</b></p>
+<p><b>V W X Y Z</b></p>
+</div>
+
+<div class="lesson">
+<h2>Leçon 2 : Les salutations</h2>
+<p>Bonjour = صباح الخير</p>
+<p>Bonsoir = مساء الخير</p>
+<p>Salut = مرحباً</p>
+<p>Merci = شكراً</p>
+<p>Au revoir = إلى اللقاء</p>
+</div>
+
+<div class="lesson">
+<h2>Leçon 3 : Se présenter</h2>
+<p>Je m'appelle KABA.</p>
+<p>اسمي كابا.</p>
+<p>Comment tu t'appelles ?</p>
+<p>ما اسمك؟</p>
+<p>Je viens du Soudan.</p>
+<p>أنا من السودان.</p>
+</div>
+
+<div class="lesson">
+<h2>Exercice : اختر الترجمة الصحيحة</h2>
+<p>Bonjour تعني:</p>
+<button onclick="check('wrong')">شكراً</button>
+<button onclick="check('right')">صباح الخير</button>
+<p id="result"></p>
+</div>
+
+<script>
+function check(answer) {
+ document.getElementById("result").innerText =
+ answer === "right" ? "Bravo ! Très bien ! 👏" : "Essaie encore !";
+}
+</script>
+
+<footer>
+<p>Apprendre pas à pas avec KABA ❤️</p>
+<p>Association ALJANGO</p>
+</footer>
+
+</body>
+</html>
