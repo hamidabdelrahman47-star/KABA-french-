@@ -1,0 +1,318 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Français Pas À Pas avec KABA - A1</title>
+<style>
+* { box-sizing:border-box; }
+body {
+  font-family:Arial,sans-serif;
+  background:#eef4ff;
+  color:#17345c;
+  text-align:center;
+  margin:0;
+  padding:12px;
+}
+header {
+  background:#17345c;
+  color:white;
+  padding:25px 12px;
+  border-radius:18px;
+}
+header h1 {font-size:25px;}
+section {
+  background:white;
+  margin:16px 0;
+  padding:18px 12px;
+  border-radius:16px;
+  box-shadow:0 3px 10px #d5e0f0;
+}
+h2 {color:#1765a5;}
+button {
+  background:#1765a5;
+  color:white;
+  border:0;
+  border-radius:12px;
+  padding:11px 14px;
+  margin:5px;
+  font-size:16px;
+  cursor:pointer;
+}
+button:active {background:#f39c12;}
+.card {
+  display:inline-block;
+  background:#f0f6ff;
+  border-radius:14px;
+  padding:12px;
+  margin:6px;
+  min-width:125px;
+}
+.picture {font-size:42px;}
+.word {font-size:19px;font-weight:bold;color:#d35400;}
+.translation {color:#536b87;}
+#score {font-size:24px;color:#e67e22;font-weight:bold;}
+.dialogue {
+  background:#f0f6ff;
+  border-radius:12px;
+  padding:12px;
+  margin:12px 0;
+  text-align:left;
+}
+footer {
+  background:#17345c;
+  color:white;
+  padding:18px;
+  border-radius:15px;
+  margin-top:20px;
+}
+footer a {color:white;}
+</style>
+</head>
+<body>
+
+<header>
+<h1>🇫🇷 Français Pas À Pas avec KABA</h1>
+<h2 style="color:white">Bienvenue au niveau A1 !</h2>
+<p>Apprendre le français pas à pas</p>
+<p>Français • العربية • English</p>
+<p>🇸🇩 ❤️ 🇫🇷</p>
+</header>
+
+<section>
+<h2>⭐ Mes points – نقاطي</h2>
+<p id="score">0 ⭐</p>
+<p id="message">Bienvenue au niveau A1 !</p>
+<p>Apprends, écoute, parle et progresse !</p>
+</section>
+
+<section>
+<h2>📚 Programme A1 – البرنامج</h2>
+<p>10 unités pour apprendre le français.</p>
+<p>1. Se présenter – تقديم النفس</p>
+<p>2. La famille – العائلة</p>
+<p>3. Les nombres et l'âge – الأرقام والعمر</p>
+<p>4. Les jours et les heures – الأيام والوقت</p>
+<p>5. La maison – المنزل</p>
+<p>6. La nourriture – الطعام</p>
+<p>7. La ville et les transports – المدينة والمواصلات</p>
+<p>8. Les activités quotidiennes – الأنشطة اليومية</p>
+<p>9. Les achats – التسوق</p>
+<p>10. La santé et les rendez-vous – الصحة والمواعيد</p>
+</section>
+
+<section>
+<h2>👋 1. Se présenter – تقديم النفس</h2>
+<div class="card">
+<div class="picture">🙋</div>
+<p class="word">Je m'appelle KABA.</p>
+<p class="translation">اسمي كابا – My name is KABA.</p>
+<button data-speak="Je m'appelle KABA." data-lang="fr-FR">Écouter 🔊</button>
+</div>
+<div class="card">
+<div class="picture">🌍</div>
+<p class="word">Je viens du Soudan.</p>
+<p class="translation">أنا من السودان – I come from Sudan.</p>
+<button data-speak="Je viens du Soudan." data-lang="fr-FR">Écouter 🔊</button>
+</div>
+<div class="card">
+<div class="picture">🏠</div>
+<p class="word">J'habite en France.</p>
+<p class="translation">أسكن في فرنسا – I live in France.</p>
+<button data-speak="J'habite en France." data-lang="fr-FR">Écouter 🔊</button>
+</div>
+<div class="card">
+<div class="picture">🎂</div>
+<p class="word">J'ai 25 ans.</p>
+<p class="translation">عمري 25 سنة – I am 25 years old.</p>
+<button data-speak="J'ai vingt-cinq ans." data-lang="fr-FR">Écouter 🔊</button>
+</div>
+<div class="dialogue">
+<h3>💬 Dialogue : KABA et ALJANGO</h3>
+<p><b>KABA :</b> Bonjour ! Comment tu t'appelles ?</p>
+<p><b>ALJANGO :</b> Je m'appelle ALJANGO. Et toi ?</p>
+<p><b>KABA :</b> Moi, c'est KABA. Tu viens d'où ?</p>
+<p><b>ALJANGO :</b> Je viens du Soudan. Et j'habite en France.</p>
+<p><b>KABA :</b> Enchanté !</p>
+<p><b>ALJANGO :</b> Enchanté aussi !</p>
+<button data-speak="Bonjour ! Comment tu t'appelles ? Je m'appelle ALJANGO. Et toi ? Moi, c'est KABA. Tu viens d'où ? Je viens du Soudan et j'habite en France. Enchanté ! Enchanté aussi !" data-lang="fr-FR">Écouter le dialogue 🔊</button>
+</div>
+<p><b>Question :</b> Comment tu t'appelles ?</p>
+<button onclick="answer(this,true,'q1')">Je m'appelle KABA.</button>
+<button onclick="answer(this,false,'q1')">J'habite en France.</button>
+<p id="q1"></p>
+</section>
+
+<section>
+<h2>👨‍👩‍👧 2. La famille – العائلة</h2>
+<div class="card"><div class="picture">👨</div><p class="word">Le père</p><p>الأب – Father</p><button data-speak="Le père">🔊 Écouter</button></div>
+<div class="card"><div class="picture">👩</div><p class="word">La mère</p><p>الأم – Mother</p><button data-speak="La mère">🔊 Écouter</button></div>
+<div class="card"><div class="picture">👦</div><p class="word">Le frère</p><p>الأخ – Brother</p><button data-speak="Le frère">🔊 Écouter</button></div>
+<div class="card"><div class="picture">👧</div><p class="word">La sœur</p><p>الأخت – Sister</p><button data-speak="La sœur">🔊 Écouter</button></div>
+<p><b>Question :</b> Comment dit-on « الأم » en français ?</p>
+<button onclick="answer(this,false,'q2')">Le père</button>
+<button onclick="answer(this,true,'q2')">La mère</button>
+<p id="q2"></p>
+</section>
+
+<section>
+<h2>🔢 3. Les nombres et l'âge – الأرقام والعمر</h2>
+<div class="card"><p class="word">Un – 1</p><p>واحد – One</p><button data-speak="Un">🔊</button></div>
+<div class="card"><p class="word">Deux – 2</p><p>اثنان – Two</p><button data-speak="Deux">🔊</button></div>
+<div class="card"><p class="word">Trois – 3</p><p>ثلاثة – Three</p><button data-speak="Trois">🔊</button></div>
+<div class="card"><p class="word">Dix – 10</p><p>عشرة – Ten</p><button data-speak="Dix">🔊</button></div>
+<p><b>Question :</b> Comment dit-on 3 en français ?</p>
+<button onclick="answer(this,true,'q3')">Trois</button>
+<button onclick="answer(this,false,'q3')">Deux</button>
+<p id="q3"></p>
+</section>
+
+<section>
+<h2>📅 4. Les jours et les heures – الأيام والوقت</h2>
+<div class="card"><p class="word">Lundi</p><p>الاثنين – Monday</p><button data-speak="Lundi">🔊</button></div>
+<div class="card"><p class="word">Mardi</p><p>الثلاثاء – Tuesday</p><button data-speak="Mardi">🔊</button></div>
+<div class="card"><p class="word">Mercredi</p><p>الأربعاء – Wednesday</p><button data-speak="Mercredi">🔊</button></div>
+<div class="card"><p class="word">Quelle heure est-il ?</p><p>كم الساعة؟ – What time is it?</p><button data-speak="Quelle heure est-il ?">🔊</button></div>
+<p><b>Question :</b> Quel jour vient après lundi ?</p>
+<button onclick="answer(this,false,'q4')">Dimanche</button>
+<button onclick="answer(this,true,'q4')">Mardi</button>
+<p id="q4"></p>
+</section>
+
+<section>
+<h2>🏠 5. La maison – المنزل</h2>
+<div class="card"><div class="picture">🛏️</div><p class="word">La chambre</p><p>غرفة النوم – Bedroom</p><button data-speak="La chambre">🔊</button></div>
+<div class="card"><div class="picture">🍳</div><p class="word">La cuisine</p><p>المطبخ – Kitchen</p><button data-speak="La cuisine">🔊</button></div>
+<div class="card"><div class="picture">🚿</div><p class="word">La salle de bains</p><p>الحمام – Bathroom</p><button data-speak="La salle de bains">🔊</button></div>
+<p><b>Question :</b> Où est-ce qu'on dort ?</p>
+<button onclick="answer(this,true,'q5')">Dans la chambre</button>
+<button onclick="answer(this,false,'q5')">Dans la cuisine</button>
+<p id="q5"></p>
+</section>
+
+<section>
+<h2>🍎 6. La nourriture – الطعام</h2>
+<div class="card"><div class="picture">🍞</div><p class="word">Le pain</p><p>الخبز – Bread</p><button data-speak="Le pain">🔊</button></div>
+<div class="card"><div class="picture">🥛</div><p class="word">Le lait</p><p>الحليب – Milk</p><button data-speak="Le lait">🔊</button></div>
+<div class="card"><div class="picture">🍚</div><p class="word">Le riz</p><p>الأرز – Rice</p><button data-speak="Le riz">🔊</button></div>
+<div class="card"><div class="picture">🍎</div><p class="word">Une pomme</p><p>تفاحة – An apple</p><button data-speak="Une pomme">🔊</button></div>
+<p><b>Question :</b> Comment dit-on « الخبز » ?</p>
+<button onclick="answer(this,false,'q6')">Le lait</button>
+<button onclick="answer(this,true,'q6')">Le pain</button>
+<p id="q6"></p>
+</section>
+
+<section>
+<h2>🚌 7. La ville et les transports – المدينة والمواصلات</h2>
+<div class="card"><div class="picture">🏫</div><p class="word">L'école</p><p>المدرسة – School</p><button data-speak="L'école">🔊</button></div>
+<div class="card"><div class="picture">🚉</div><p class="word">La gare</p><p>المحطة – Station</p><button data-speak="La gare">🔊</button></div>
+<div class="card"><div class="picture">🚌</div><p class="word">Le bus</p><p>الحافلة – Bus</p><button data-speak="Le bus">🔊</button></div>
+<div class="card"><div class="picture">🚆</div><p class="word">Le train</p><p>القطار – Train</p><button data-speak="Le train">🔊</button></div>
+<p><b>Question :</b> Où prend-on le train ?</p>
+<button onclick="answer(this,true,'q7')">À la gare</button>
+<button onclick="answer(this,false,'q7')">À la cuisine</button>
+<p id="q7"></p>
+</section>
+
+<section>
+<h2>⏰ 8. Les activités quotidiennes – الأنشطة اليومية</h2>
+<div class="card"><p class="word">Je me réveille.</p><p>أستيقظ – I wake up</p><button data-speak="Je me réveille.">🔊</button></div>
+<div class="card"><p class="word">Je mange.</p><p>آكل – I eat</p><button data-speak="Je mange.">🔊</button></div>
+<div class="card"><p class="word">Je travaille.</p><p>أعمل – I work</p><button data-speak="Je travaille.">🔊</button></div>
+<div class="card"><p class="word">Je dors.</p><p>أنام – I sleep</p><button data-speak="Je dors.">🔊</button></div>
+<p><b>Question :</b> Que signifie « Je travaille » ?</p>
+<button onclick="answer(this,false,'q8')">أنا أنام</button>
+<button onclick="answer(this,true,'q8')">أنا أعمل</button>
+<p id="q8"></p>
+</section>
+
+<section>
+<h2>🛒 9. Les achats – التسوق</h2>
+<div class="card"><p class="word">Combien ça coûte ?</p><p>كم السعر؟ – How much is it?</p><button data-speak="Combien ça coûte ?">🔊</button></div>
+<div class="card"><p class="word">C'est cher.</p><p>هذا غالٍ – It's expensive</p><button data-speak="C'est cher.">🔊</button></div>
+<div class="card"><p class="word">Je voudrais du pain.</p><p>أريد بعض الخبز – I would like some bread</p><button data-speak="Je voudrais du pain.">🔊</button></div>
+<p><b>Question :</b> Comment demander le prix ?</p>
+<button onclick="answer(this,true,'q9')">Combien ça coûte ?</button>
+<button onclick="answer(this,false,'q9')">Comment tu t'appelles ?</button>
+<p id="q9"></p>
+</section>
+
+<section>
+<h2>🩺 10. La santé et les rendez-vous – الصحة والمواعيد</h2>
+<div class="card"><div class="picture">👨‍⚕️</div><p class="word">Le médecin</p><p>الطبيب – Doctor</p><button data-speak="Le médecin">🔊</button></div>
+<div class="card"><div class="picture">🏥</div><p class="word">L'hôpital</p><p>المستشفى – Hospital</p><button data-speak="L'hôpital">🔊</button></div>
+<div class="card"><div class="picture">🤒</div><p class="word">J'ai mal à la tête.</p><p>رأسي يؤلمني – I have a headache</p><button data-speak="J'ai mal à la tête.">🔊</button></div>
+<div class="card"><div class="picture">📅</div><p class="word">J'ai un rendez-vous.</p><p>لدي موعد – I have an appointment</p><button data-speak="J'ai un rendez-vous.">🔊</button></div>
+<p><b>Question :</b> Où travaille le médecin ?</p>
+<button onclick="answer(this,false,'q10')">À la gare</button>
+<button onclick="answer(this,true,'q10')">À l'hôpital</button>
+<p id="q10"></p>
+</section>
+
+<section>
+<h2>🏆 Bravo ! – أحسنت!</h2>
+<p>Tu as terminé les 10 unités de découverte A1 !</p>
+<p>لقد أكملت وحدات التعرف على المستوى A1!</p>
+<button onclick="speak('Bravo ! Tu progresses en français !','fr-FR')">Écouter les encouragements 🔊</button>
+<button onclick="restart()">Recommencer les points 🔄</button>
+</section>
+
+<footer>
+<h3>Français Pas À Pas avec KABA</h3>
+<p>ALJANGO – Apprendre ensemble !</p>
+<p>🇸🇩 Solidarité • 🇫🇷 Intégration</p>
+<a href="index.html">Retour à l'accueil</a>
+</footer>
+
+<script>
+let points = 0;
+
+function speak(message, language='fr-FR') {
+  if (!('speechSynthesis' in window)) {
+    alert("La lecture vocale n'est pas disponible.");
+    return;
+  }
+  window.speechSynthesis.cancel();
+  const speech = new SpeechSynthesisUtterance(message);
+  speech.lang = language;
+  speech.rate = 0.85;
+  window.speechSynthesis.speak(speech);
+}
+
+document.querySelectorAll('[data-speak]').forEach(button => {
+  button.addEventListener('click', () => {
+    speak(button.dataset.speak, button.dataset.lang || 'fr-FR');
+  });
+});
+
+function addPoint() {
+  points++;
+  document.getElementById('score').textContent = points + ' ⭐';
+  document.getElementById('message').textContent =
+    'Bravo ! Très bien ! Continue ! 🎉';
+}
+
+function answer(button, correct, resultId) {
+  const result = document.getElementById(resultId);
+  if (correct) {
+    result.textContent = 'Bravo ! Bonne réponse ! 🎉';
+    addPoint();
+  } else {
+    result.textContent = 'Essaie encore ! حاول مرة أخرى.';
+  }
+}
+
+function restart() {
+  points = 0;
+  document.getElementById('score').textContent = '0 ⭐';
+  document.getElementById('message').textContent =
+    'Bienvenue au niveau A1 !';
+  document.querySelectorAll('[id^="q"]').forEach(item => {
+    item.textContent = '';
+  });
+}
+</script>
+
+</body>
+</html>
