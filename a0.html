@@ -369,6 +369,161 @@ function kabaSpeak4(text, lang) {
 }
 </script>
   
+<section id="kaba-game">
+  <h2>🎮 Le jeu de KABA</h2>
+  <p>Apprends en jouant ! / تعلّم باللعب! / Learn by playing!</p>
+
+  <div id="kaba-question"></div>
+  <div id="kaba-answers"></div>
+  <p id="kaba-feedback" aria-live="polite"></p>
+  <p id="kaba-score">⭐ Score : 0</p>
+  <button id="kaba-next" onclick="kabaNext()" disabled>
+    Question suivante ➜
+  </button>
+</section>
+
+<style>
+#kaba-game {
+  background: #eaf4ff;
+  color: #17365d;
+  padding: 20px;
+  margin: 25px 0;
+  border-radius: 18px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+#kaba-game h2 { color: #0755a5; }
+#kaba-question {
+  background: white;
+  padding: 15px;
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 1.8;
+}
+#kaba-answers button, #kaba-next {
+  display: block;
+  width: 100%;
+  margin: 10px auto;
+  padding: 13px;
+  border: 0;
+  border-radius: 12px;
+  background: #1769aa;
+  color: white;
+  font-size: 17px;
+  cursor: pointer;
+}
+#kaba-answers button:disabled { opacity: .7; }
+#kaba-next { background: #16834a; }
+#kaba-feedback {
+  font-size: 18px;
+  font-weight: bold;
+  min-height: 28px;
+}
+</style>
+
+<script>
+const kabaQuestions = [
+  {
+    q: "Comment dit-on مرحباً en français ?<br>How do we say Hello?",
+    a: ["Au revoir", "Bonjour", "Merci"],
+    correct: 1
+  },
+  {
+    q: "Comment dit-on شكراً en français ?<br>How do we say Thank you?",
+    a: ["Merci", "Salut", "Bonsoir"],
+    correct: 0
+  },
+  {
+    q: "Que signifie Au revoir ?<br>ما معنى Au revoir ؟",
+    a: ["صباح الخير", "إلى اللقاء", "من فضلك"],
+    correct: 1
+  },
+  {
+    q: "Comment dit-on Je m'appelle KABA ?<br>ما معنى هذه الجملة؟",
+    a: ["أنا اسمي كابا", "أنا سعيد", "أنا أتكلم"],
+    correct: 0
+  },
+  {
+    q: "Comment dit-on Bonne nuit ?<br>ما معنى Bonne nuit ؟",
+    a: ["مساء الخير", "تصبح على خير", "أهلاً"],
+    correct: 1
+  }
+];
+
+let kabaIndex = 0;
+let kabaPoints = 0;
+
+function kabaShowQuestion() {
+  const item = kabaQuestions[kabaIndex];
+  document.getElementById("kaba-question").innerHTML =
+    "Question " + (kabaIndex + 1) + " / " +
+    kabaQuestions.length + "<br><br>" + item.q;
+
+  document.getElementById("kaba-answers").innerHTML =
+    item.a.map((answer, i) =>
+      `<button onclick="kabaAnswer(${i})">${answer}</button>`
+    ).join("");
+
+  document.getElementById("kaba-feedback").textContent = "";
+  document.getElementById("kaba-next").disabled = true;
+  document.getElementById("kaba-score").textContent =
+    "⭐ Score : " + kabaPoints;
+}
+
+function kabaAnswer(choice) {
+  const item = kabaQuestions[kabaIndex];
+  const buttons = document.querySelectorAll("#kaba-answers button");
+
+  buttons.forEach(button => button.disabled = true);
+
+  if (choice === item.correct) {
+    kabaPoints++;
+    document.getElementById("kaba-feedback").textContent =
+      "🎉 Bravo ! Très bien ! أنت عبقري !";
+  } else {
+    document.getElementById("kaba-feedback").textContent =
+      "😂 Oups ! KABA a besoin d'un café ! Essaie encore !";
+  }
+
+  document.getElementById("kaba-score").textContent =
+    "⭐ Score : " + kabaPoints;
+  document.getElementById("kaba-next").disabled = false;
+}
+
+function kabaNext() {
+  kabaIndex++;
+
+  if (kabaIndex >= kabaQuestions.length) {
+    document.getElementById("kaba-question").innerHTML =
+      "🏆 Félicitations !<br>انتهت اللعبة!<br>Your final score: " +
+      kabaPoints + " / " + kabaQuestions.length;
+
+    document.getElementById("kaba-answers").innerHTML = "";
+    document.getElementById("kaba-feedback").textContent =
+      "KABA est fier de toi ! 👏";
+    document.getElementById("kaba-next").textContent =
+      "🔄 Recommencer";
+    document.getElementById("kaba-next").disabled = false;
+    document.getElementById("kaba-next").onclick = kabaRestart;
+    return;
+  }
+
+  kabaShowQuestion();
+}
+
+function kabaRestart() {
+  kabaIndex = 0;
+  kabaPoints = 0;
+  document.getElementById("kaba-next").textContent =
+    "Question suivante ➜";
+  document.getElementById("kaba-next").onclick = kabaNext;
+  kabaShowQuestion();
+}
+
+kabaShowQuestion();
+</script>
+
 </body>
 </html>
 </body>
