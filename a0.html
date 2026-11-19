@@ -267,6 +267,108 @@ function check(answer) {
 </script>
 </script>
 
+<section id="kaba-skills">
+  <h2>🌟 LES 4 COMPÉTENCES</h2>
+  <p>Apprendre le français pas à pas !</p>
+  <p>تعلّم الفرنسية خطوة بخطوة</p>
+  <p>Learn French step by step</p>
+
+  <div class="kaba-skill">
+    <h3>👂 1. ÉCOUTER</h3>
+    <p>Écouter attentivement et comprendre les sons.</p>
+    <p>الاستماع بانتباه وفهم الأصوات.</p>
+    <p>Listen carefully and understand sounds.</p>
+    <button onclick="kabaSpeak4('Écouter attentivement et comprendre les sons.','fr-FR')">🔊 Français</button>
+    <button onclick="kabaSpeak4('الاستماع بانتباه وفهم الأصوات','ar')">🔊 العربية</button>
+    <button onclick="kabaSpeak4('Listen carefully and understand sounds.','en-US')">🔊 English</button>
+  </div>
+
+  <div class="kaba-skill">
+    <h3>🗣️ 2. PARLER</h3>
+    <p>Répéter les mots et parler avec confiance.</p>
+    <p>تكرار الكلمات والتحدث بثقة.</p>
+    <p>Repeat words and speak with confidence.</p>
+    <button onclick="kabaSpeak4('Répéter les mots et parler avec confiance.','fr-FR')">🔊 Français</button>
+    <button onclick="kabaSpeak4('تكرار الكلمات والتحدث بثقة','ar')">🔊 العربية</button>
+    <button onclick="kabaSpeak4('Repeat words and speak with confidence.','en-US')">🔊 English</button>
+  </div>
+
+  <div class="kaba-skill">
+    <h3>📖 3. LIRE</h3>
+    <p>Découvrir les lettres et lire des mots.</p>
+    <p>اكتشاف الحروف وقراءة الكلمات.</p>
+    <p>Discover letters and read words.</p>
+    <button onclick="kabaSpeak4('Découvrir les lettres et lire des mots.','fr-FR')">🔊 Français</button>
+    <button onclick="kabaSpeak4('اكتشاف الحروف وقراءة الكلمات','ar')">🔊 العربية</button>
+    <button onclick="kabaSpeak4('Discover letters and read words.','en-US')">🔊 English</button>
+  </div>
+
+  <div class="kaba-skill">
+    <h3>✍️ 4. ÉCRIRE</h3>
+    <p>Écrire des lettres, des mots et des phrases.</p>
+    <p>كتابة الحروف والكلمات والجمل.</p>
+    <p>Write letters, words and sentences.</p>
+    <button onclick="kabaSpeak4('Écrire des lettres, des mots et des phrases.','fr-FR')">🔊 Français</button>
+    <button onclick="kabaSpeak4('كتابة الحروف والكلمات والجمل','ar')">🔊 العربية</button>
+    <button onclick="kabaSpeak4('Write letters, words and sentences.','en-US')">🔊 English</button>
+  </div>
+
+  <h3>💪 Avec KABA, je progresse chaque jour !</h3>
+  <p>مع KABA أتقدم كل يوم !</p>
+  <p>With KABA, I improve every day!</p>
+</section>
+
+<style>
+#kaba-skills {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 15px;
+  color: #17365d;
+}
+#kaba-skills h2 {
+  color: #0755a5;
+  font-size: 25px;
+}
+#kaba-skills .kaba-skill {
+  background: #eaf4ff;
+  border: 2px solid #2775c7;
+  border-radius: 14px;
+  padding: 14px;
+  margin: 14px 0;
+}
+#kaba-skills .kaba-skill h3 {
+  color: #0755a5;
+  font-size: 21px;
+}
+#kaba-skills p {
+  font-size: 16px;
+  line-height: 1.6;
+}
+#kaba-skills button {
+  background: #0755a5;
+  color: white;
+  border: 0;
+  border-radius: 8px;
+  padding: 9px 12px;
+  margin: 4px;
+  font-size: 14px;
+}
+</style>
+
+<script>
+function kabaSpeak4(text, lang) {
+  if (!('speechSynthesis' in window)) {
+    alert('La lecture audio n’est pas disponible sur cet appareil.');
+    return;
+  }
+  window.speechSynthesis.cancel();
+  const message = new SpeechSynthesisUtterance(text);
+  message.lang = lang;
+  message.rate = 0.85;
+  window.speechSynthesis.speak(message);
+}
+</script>
+  
 </body>
 </html>
 </body>
